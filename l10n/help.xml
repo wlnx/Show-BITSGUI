@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Writing Help for Windows PowerShell Modules: https://msdn.microsoft.com/library/dd878343.aspx -->
+<!-- How to Create the Cmdlet Help File: https://msdn.microsoft.com/library/bb525433.aspx -->
+<!-- Writing XML-Based Help Topics for Scripts and Functions: https://msdn.microsoft.com/library/dn594614.aspx -->
+<helpItems schema="maml">
+    <command:command 
+        xmlns:maml="http://schemas.microsoft.com/maml/2004/10" 
+        xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" 
+        xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
+        <command:details>
+            <command:name>Show-BITSGUI.ps1</command:name>
+            <command:verb>Show</command:verb>
+            <command:noun>BITSGUI</command:noun>
+            <maml:description>
+                <maml:para>This script lets you use the power of BitsTransfer module with a simple GUI shell.</maml:para>
+            </maml:description>
+        </command:details>
+        <maml:description>
+            <maml:para>Windows Powershell lets us use BITS to reliably get files from network, but the power of the mechanism is available only via CLI. BitsDownloader simplifies the use of the service by creating a simple GUI, where you can select source and destination files and check progress in realtime. Closing the script doesn't interrupt the downloads, you can start the script later and check the process state. As a side effect you can inspect BITS transfers initiated by other programs.</maml:para>
+        </maml:description>
+        <command:syntax>
+            <command:syntaxItem>
+                <maml:name>Show-BITSGUI.ps1</maml:name>
+                <command:parameter position="1">
+                    <maml:name>UICulture</maml:name>
+                    <command:parameterValue>UICulture</command:parameterValue>
+                </command:parameter>
+            </command:syntaxItem>
+        </command:syntax>
+        <command:parameters>
+            <command:parameter required="false" globbing="false" pipelineInput="false">
+                <maml:name>UICulture</maml:name>
+                <maml:description>
+                    <maml:para>Use the parameter to force certain localization usage.</maml:para>
+                </maml:description>
+                <dev:type>string</dev:type>
+                <command:parameterValue required="true">UICulture</command:parameterValue>
+                <dev:defaultValue>Property "Name" of the object returned by Get-UICulture cmdlet.</dev:defaultValue>
+            </command:parameter>
+        </command:parameters>
+        <command:inputTypes>
+            <command:inputType>
+                <dev:type>
+                    <maml:name>string</maml:name>
+                    <maml:uri>https://msdn.microsoft.com/library/system.string.aspx</maml:uri>
+                </dev:type>
+                <maml:description>
+                    <maml:para>Represents text as a sequence of UTF-16 code units.</maml:para>
+                </maml:description>
+            </command:inputType>
+        </command:inputTypes>
+        <command:returnValues>
+            <command:returnValue>
+                <dev:type>
+                    <maml:name>None</maml:name>
+                </dev:type>
+                <maml:description>
+                    <maml:para>This script doesn't return a value.</maml:para>
+                </maml:description>
+            </command:returnValue>
+        </command:returnValues>
+        <maml:alertSet>
+            <maml:title>Disclaimer</maml:title>
+            <maml:alert>
+                <maml:para>This script's behavior may be unexpected, it may not be starting, it may remove all your data, explode your PC, eat your favorite hamster or do some other good thing instead of declared functionality. I wasn't planning such things while scripting but bugs happen. Thus, use it under your own responsibility. You are warned.</maml:para>
+                <maml:para></maml:para>
+            </maml:alert>
+        </maml:alertSet>
+        <command:examples>
+            <command:example>
+                <maml:title>Starting script</maml:title>
+                <maml:Introduction>
+                    <maml:paragraph>C:\PS&gt;</maml:paragraph>
+                </maml:Introduction>
+                <dev:code>.\Show-BITSGUI.ps1</dev:code>
+                <dev:remarks>
+                    <maml:para>This command opens program's window.</maml:para>
+                    <maml:para></maml:para>
+                    <maml:para></maml:para>
+                </dev:remarks>
+            </command:example>
+            <command:example>
+                <maml:title>Starting script using none-default locale</maml:title>
+                <maml:Introduction>
+                    <maml:paragraph>C:\PS&gt;</maml:paragraph>
+                </maml:Introduction>
+                <dev:code>.\Show-BITSGUI.ps1 -UICulture 'ru-RU'</dev:code>
+                <dev:remarks>
+                    <maml:para>This command opens program's windows in russian.</maml:para>
+                    <maml:para>Localization file should present at path &lt;path to script&gt;\l10n\ru-RU\vars.psd1</maml:para>
+                    <maml:para></maml:para>
+                    <maml:para></maml:para>
+                </dev:remarks>
+            </command:example>
+        </command:examples>
+        <maml:relatedLinks>
+            <maml:navigationLink>
+                <maml:linkText>https://msdn.microsoft.com/library/windows/desktop/aa362708.aspx</maml:linkText>
+            </maml:navigationLink>
+        </maml:relatedLinks>
+    </command:command>
+</helpItems>

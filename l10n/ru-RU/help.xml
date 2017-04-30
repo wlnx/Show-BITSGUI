@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Writing Help for Windows PowerShell Modules: https://msdn.microsoft.com/library/dd878343.aspx -->
+<!-- How to Create the Cmdlet Help File: https://msdn.microsoft.com/library/bb525433.aspx -->
+<!-- Writing XML-Based Help Topics for Scripts and Functions: https://msdn.microsoft.com/library/dn594614.aspx -->
+<helpItems schema="maml">
+    <command:command 
+        xmlns:maml="http://schemas.microsoft.com/maml/2004/10" 
+        xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" 
+        xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
+        <command:details>
+            <command:name>Show-BITSGUI.ps1</command:name>
+            <command:verb>Show</command:verb>
+            <command:noun>BITSGUI</command:noun>
+            <maml:description>
+                <maml:para>Графический интерфейс для передачи файлов с использованием механизма BITS.</maml:para>
+            </maml:description>
+        </command:details>
+        <maml:description>
+            <maml:para>В Windows есть возможность использовать BITS для передачи файлов, однако взаимодействие с этим механизмом реализовано только через API или инструменты командной строки. Данный скрипт предоставляет простой графический интерфейс для работы с BITS, позволяющий указать источник и приёмник и наблюдать прогресс передачи. При завершении работы скрипта передача продолжается в фоновом режиме, при повторном открытии скрипт отобразит ранее запущенные задачи. Побочным эффектом является отображение задач передачи файлов с использованием BITS, инициированных другими программами.</maml:para>
+        </maml:description>
+        <command:syntax>
+            <command:syntaxItem>
+                <maml:name>Show-BITSGUI.ps1</maml:name>
+                <command:parameter position="1">
+                    <maml:name>UICulture</maml:name>
+                    <command:parameterValue>UICulture</command:parameterValue>
+                </command:parameter>
+            </command:syntaxItem>
+        </command:syntax>
+        <command:parameters>
+            <command:parameter required="false" globbing="false" pipelineInput="false">
+                <maml:name>UICulture</maml:name>
+                <maml:description>
+                    <maml:para>Данный параметр определяет языковые настройки скрипта.</maml:para>
+                </maml:description>
+                <dev:type>string</dev:type>
+                <command:parameterValue required="true">UICulture</command:parameterValue>
+                <dev:defaultValue>Поле Name значения, возвращаемого командлетом Get-UICulture.</dev:defaultValue>
+            </command:parameter>
+        </command:parameters>
+        <command:inputTypes>
+            <command:inputType>
+                <dev:type>
+                    <maml:name>string</maml:name>
+                    <maml:uri>https://msdn.microsoft.com/library/system.string.aspx</maml:uri>
+                </dev:type>
+                <maml:description>
+                    <maml:para>Представляет текст как последовательность из частей кода UTF-16.</maml:para>
+                </maml:description>
+            </command:inputType>
+        </command:inputTypes>
+        <command:returnValues>
+            <command:returnValue>
+                <dev:type>
+                    <maml:name>Нет</maml:name>
+                </dev:type>
+                <maml:description>
+                    <maml:para>Этот скрипт не возвращает значений.</maml:para>
+                </maml:description>
+            </command:returnValue>
+        </command:returnValues>
+        <maml:alertSet>
+            <maml:title>Традиционный отказ от ответственности</maml:title>
+            <maml:alert>
+                <maml:para>Этот скрипт может вести себя неожиданным образом, может вообще не запускаться, может удалить все ваши данные, взорвать компьютер, съесть любимого хомячка или сделать ещё что-нибудь хорошее вместо обещанного. Я такого, конечно, не планировал, но от ошибок никто не застрахован. Так что используйте на свой страх и риск. Я вас предупредил.</maml:para>
+                <maml:para></maml:para>
+            </maml:alert>
+            <maml:title>Расположение файлов локализации</maml:title>
+            <maml:alert>
+                <maml:para>Файлы локализации расположены в директории &lt;путь к скрипту&gt;\l10n\ Для каждой локализации создаётся отдельная вложенная директория &lt;имя локализации&gt;. В каждой директории должны находиться файлы help.xml (файл справки) и vars.psd1 (файл локализации). В случае, если не найдены требуемая директория с именем локализации или файлы в ней, для локализации по умолчанию используются файлы help.xml и vars.psd1 непосредственно в директории &lt;путь к скрипту&gt;\l10n\ На текущий момент в качестве локализации по умолчанию используется en-US, вы можете заменить файлы локализации по умолчанию.</maml:para>
+                <maml:para></maml:para>
+            </maml:alert>
+        </maml:alertSet>
+        <command:examples>
+            <command:example>
+                <maml:title>Запуск скрипта</maml:title>
+                <maml:Introduction>
+                    <maml:paragraph>C:\PS&gt;</maml:paragraph>
+                </maml:Introduction>
+                <dev:code>.\Show-BITSGUI.ps1</dev:code>
+                <dev:remarks>
+                    <maml:para>Открывает окно программы.</maml:para>
+                    <maml:para></maml:para>
+                    <maml:para></maml:para>
+                </dev:remarks>
+            </command:example>
+            <command:example>
+                <maml:title>Запуск скрипта с локализацией, отличной от системной</maml:title>
+                <maml:Introduction>
+                    <maml:paragraph>C:\PS&gt;</maml:paragraph>
+                </maml:Introduction>
+                <dev:code>.\Show-BITSGUI.ps1 -UICulture 'en-US'</dev:code>
+                <dev:remarks>
+                    <maml:para>Открывает окно программы на английском языке.</maml:para>
+                    <maml:para></maml:para>
+                    <maml:para></maml:para>
+                </dev:remarks>
+            </command:example>
+        </command:examples>
+        <maml:relatedLinks>
+            <maml:navigationLink>
+                <maml:linkText>https://msdn.microsoft.com/library/windows/desktop/aa362708.aspx</maml:linkText>
+            </maml:navigationLink>
+        </maml:relatedLinks>
+    </command:command>
+</helpItems>
