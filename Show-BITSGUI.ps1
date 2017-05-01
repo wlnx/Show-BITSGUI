@@ -14,7 +14,8 @@ param(
 
 Import-LocalizedData -UICulture $UICulture -BaseDirectory '.\l10n' -FileName 'vars.psd1' -BindingVariable Strings;
 
-[void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms");
+#[void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms");
+Add-Type -AssemblyName System.Windows.Forms;
 
 #Либо MTA, либо Open/SaveFileDialog... =(
 if ([threading.thread]::CurrentThread.GetApartmentState() -ne [System.Threading.ApartmentState]::STA) {
