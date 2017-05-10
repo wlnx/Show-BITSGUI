@@ -131,6 +131,7 @@ $MainWnd.Title = $Strings.'MainWnd.Text';
         $BrowseWnd.FindName('tbSrc').AddHandler(
             [System.Windows.Controls.TextBox]::TextChangedEvent,
             [System.Windows.Controls.TextChangedEventHandler]{
+                # ToDo: ОЧЕНЬ глючный эвент хэндлер, заполняет btDst какой-то хернёй
                 if ($BrowseWnd.FindName('tbDst').Text -eq '') {
                     $DelimPos = $BrowseWnd.FindName('tbSrc').Text.LastIndexOf('/');
                     if ($DelimPos -eq -1) {$DelimPos = $BrowseWnd.FindName('tbSrc').Text.LastIndexOf('\');}
